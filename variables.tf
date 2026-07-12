@@ -67,11 +67,11 @@ EOT
       identity_ids = optional(set(string))
       type         = string
     }))
-    patch_schedule = optional(object({
+    patch_schedule = optional(list(object({
       day_of_week        = string
       maintenance_window = optional(string) # Default: "PT5H"
       start_hour_utc     = optional(number)
-    }))
+    })))
     redis_configuration = optional(object({
       active_directory_authentication_enabled = optional(bool)
       aof_backup_enabled                      = optional(bool)
