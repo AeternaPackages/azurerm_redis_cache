@@ -1,4 +1,9 @@
 # --- azurerm_redis_cache ---
+output "redis_caches_id" {
+  description = "Map of id values across all redis_caches, keyed the same as var.redis_caches"
+  value       = module.redis_caches.redis_caches_id
+}
+
 output "redis_caches_access_keys_authentication_enabled" {
   description = "Map of access_keys_authentication_enabled values across all redis_caches, keyed the same as var.redis_caches"
   value       = module.redis_caches.redis_caches_access_keys_authentication_enabled
@@ -150,6 +155,11 @@ output "redis_caches_zones" {
 }
 
 # --- azurerm_redis_cache_access_policy ---
+output "redis_cache_access_policies_id" {
+  description = "Map of id values across all redis_cache_access_policies, keyed the same as var.redis_cache_access_policies"
+  value       = module.redis_cache_access_policies.redis_cache_access_policies_id
+}
+
 output "redis_cache_access_policies_name" {
   description = "Map of name values across all redis_cache_access_policies, keyed the same as var.redis_cache_access_policies"
   value       = module.redis_cache_access_policies.redis_cache_access_policies_name
@@ -166,6 +176,11 @@ output "redis_cache_access_policies_redis_cache_id" {
 }
 
 # --- azurerm_redis_cache_access_policy_assignment ---
+output "redis_cache_access_policy_assignments_id" {
+  description = "Map of id values across all redis_cache_access_policy_assignments, keyed the same as var.redis_cache_access_policy_assignments"
+  value       = module.redis_cache_access_policy_assignments.redis_cache_access_policy_assignments_id
+}
+
 output "redis_cache_access_policy_assignments_access_policy_name" {
   description = "Map of access_policy_name values across all redis_cache_access_policy_assignments, keyed the same as var.redis_cache_access_policy_assignments"
   value       = module.redis_cache_access_policy_assignments.redis_cache_access_policy_assignments_access_policy_name
@@ -192,6 +207,11 @@ output "redis_cache_access_policy_assignments_redis_cache_id" {
 }
 
 # --- azurerm_redis_firewall_rule ---
+output "redis_firewall_rules_id" {
+  description = "Map of id values across all redis_firewall_rules, keyed the same as var.redis_firewall_rules"
+  value       = module.redis_firewall_rules.redis_firewall_rules_id
+}
+
 output "redis_firewall_rules_end_ip" {
   description = "Map of end_ip values across all redis_firewall_rules, keyed the same as var.redis_firewall_rules"
   value       = module.redis_firewall_rules.redis_firewall_rules_end_ip
