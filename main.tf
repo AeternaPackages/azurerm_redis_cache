@@ -5,7 +5,7 @@ locals {
     for k1, v1 in var.redis_caches : {
       for k2, v2 in coalesce(v1.redis_cache_access_policies, {}) :
       "${k1}/${k2}" => merge(v2, {
-        redis_cache_id = module.redis_caches.redis_caches["${k1}"].id
+        redis_cache_id = module.redis_caches.redis_caches_id["${k1}"]
       })
     }
   ]...)
@@ -14,7 +14,7 @@ locals {
     for k1, v1 in var.redis_caches : {
       for k2, v2 in coalesce(v1.redis_cache_access_policy_assignments, {}) :
       "${k1}/${k2}" => merge(v2, {
-        redis_cache_id = module.redis_caches.redis_caches["${k1}"].id
+        redis_cache_id = module.redis_caches.redis_caches_id["${k1}"]
       })
     }
   ]...)
@@ -23,7 +23,7 @@ locals {
     for k1, v1 in var.redis_caches : {
       for k2, v2 in coalesce(v1.redis_firewall_rules, {}) :
       "${k1}/${k2}" => merge(v2, {
-        redis_cache_name = module.redis_caches.redis_caches["${k1}"].name
+        redis_cache_name = module.redis_caches.redis_caches_name["${k1}"]
       })
     }
   ]...)
