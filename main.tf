@@ -30,24 +30,24 @@ locals {
 }
 
 module "redis_caches" {
-  source       = "git::https://github.com/AeternaModules/azurerm_redis_cache.git?ref=v4.81.0"
+  source       = "git::https://github.com/AeternaModules/azurerm_redis_cache.git?ref=v5.0.0"
   redis_caches = local.redis_caches
 }
 
 module "redis_cache_access_policies" {
-  source                      = "git::https://github.com/AeternaModules/azurerm_redis_cache_access_policy.git?ref=v4.81.0"
+  source                      = "git::https://github.com/AeternaModules/azurerm_redis_cache_access_policy.git?ref=v5.0.0"
   redis_cache_access_policies = local.redis_cache_access_policies
   depends_on                  = [module.redis_caches]
 }
 
 module "redis_cache_access_policy_assignments" {
-  source                                = "git::https://github.com/AeternaModules/azurerm_redis_cache_access_policy_assignment.git?ref=v4.81.0"
+  source                                = "git::https://github.com/AeternaModules/azurerm_redis_cache_access_policy_assignment.git?ref=v5.0.0"
   redis_cache_access_policy_assignments = local.redis_cache_access_policy_assignments
   depends_on                            = [module.redis_caches]
 }
 
 module "redis_firewall_rules" {
-  source               = "git::https://github.com/AeternaModules/azurerm_redis_firewall_rule.git?ref=v4.81.0"
+  source               = "git::https://github.com/AeternaModules/azurerm_redis_firewall_rule.git?ref=v5.0.0"
   redis_firewall_rules = local.redis_firewall_rules
   depends_on           = [module.redis_caches]
 }
